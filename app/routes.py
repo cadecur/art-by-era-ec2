@@ -25,8 +25,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
-            pred_class=predictor.model_predict(save_to, app.config[LOC_MODELS_FOLDER]:wq
-                    )
+            pred_class=predictor.model_predict(save_to, app.config[LOC_MODELS_FOLDER])
             return render_template('displayResult.html', filename=filename, prediction=pred_class)
     return render_template('index.html')
 

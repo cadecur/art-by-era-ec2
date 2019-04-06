@@ -1,0 +1,19 @@
+server {
+
+    root /home/ubuntu/cs121;
+
+    listen 80;
+    server_name ec2-54-183-213-3.us-west-1.compute.amazonaws.com www.ec2-54-183-213-3.us-west-1.compute.amazonaws.com;
+
+    location /static {
+	alias /home/ubuntu/cs121/static;
+	
+    }
+
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/cs121/cs121.sock;
+    }
+
+}

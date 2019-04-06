@@ -1,0 +1,49 @@
+Tests for install:
+0. check ec2
+Ubuntu 18.04
+Allow input on ports 22, 80, 5000, and 8000
+
+1. check flask app
+In terminal on ec2:
+cd ~/cs121
+source myenv/bin/activate
+flask run
+
+Open a second terminal window:
+curl localhost:5000
+
+You should get the following response in second window
+<h1 style='color:blue'>Hello There!</h1>
+
+control-c in first window to stop flask app
+
+
+2.check gunicorn
+In first terminal window (still in virtual environment)
+gunicorn --bind 0.0.0.0:5000 wsgi:app
+In second terminal window:
+curl localhost:5000
+
+You should get the following response in second window
+<h1 style='color:blue'>Hello There!</h1>
+
+control-c in first window to stop gunicorn
+
+3. check service
+In terminal window:
+sudo systemctl status cs121
+
+You should see a report saying that there are 3 workers
+
+Enter q to return to the command prompt
+
+4. check nginx.conf
+In terminal window:
+sudo nginx -t
+
+5. check for other problems (for the second two hit space bar until you get to the end of the files, then q to quit:
+sudo tail /var/log/nginx/error.log: checks the Nginx error logs.
+sudo tail /var/log/nginx/access.log: checks the Nginx access logs.
+sudo journalctl -u nginx: checks the Nginx process logs.
+sudo journalctl -u cs121: checks your Flask app's Gunicorn logs.
+

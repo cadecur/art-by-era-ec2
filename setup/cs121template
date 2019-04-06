@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name ip4 www.ip4;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/cs121/cs121.sock;
+    }
+}
