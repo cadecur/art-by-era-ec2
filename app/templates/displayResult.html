@@ -1,0 +1,10 @@
+    <!doctype html>
+    <title>Cats</title>
+    {% if prediction %}
+    <h2>It is a {{ prediction }}!</h2>
+    {% endif %}
+    {% if filename %}
+    <h2>{{ filename }}</h2>
+    <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
+    <img src="/static/{{ url_for('get_file', filename=filename) }}">
+    {% endif %}
