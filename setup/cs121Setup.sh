@@ -10,17 +10,15 @@ sudo apt install git
 
 #set up project directory
 echo "creating project directory..."
-cd ~
-git clone https://github.com/zsweedyk/cs121.git
 
 #create virtual environment
 cd ~/cs121
-mkdir ~/cs121/static
-mkdir ~/cs121/app/models
-chown :www-data static
-python3.6 -m venv myenv
+mkdir -p ~/cs121/static
+mkdir -p ~/cs121/app/models
+sudo chown :www-data static
+python3 -m venv myenv
 source myenv/bin/activate
-pip install -r requirements.txt
+pip install -r ~/cs121/setup/requirements.txt
 deactivate
 
 #site/service set up
