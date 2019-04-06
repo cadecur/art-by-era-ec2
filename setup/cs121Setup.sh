@@ -33,7 +33,7 @@ sudo ln -sf /etc/nginx/sites-available/cs121 /etc/nginx/sites-enabled
 #edit default nginx.conf to avoid hash_bucket_size problem
 sudo cp /etc/nginx/nginx.conf ~/cs121/setup/tmp
 sudo chown ubuntu ~/cs121/setup/tmp
-sudo sed 's/# server_names_hash_bucket_size 64/server_names_hash_bucket_size 128/' ~/cs121/setup/tmp > nginx.conf
+sudo sed 's/# server_names_hash_bucket_size 64/server_names_hash_bucket_size 128/' ~/cs121/setup/tmp > ~/cs121/setup/nginx.conf
 sudo rm ~/cs121/setup/tmp
 sudo chown root ~/cs121/setup/nginx.conf
 sudo mv ~/cs121/setup/nginx.conf /etc/nginx/nginx.conf
