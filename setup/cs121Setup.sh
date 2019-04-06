@@ -9,8 +9,7 @@ sudo apt install nginx
 sudo apt install git
 
 #set up project directory
-echo "creating project directory..."
-
+echo "creating project environment..."
 #create virtual environment
 cd ~/cs121
 mkdir -p ~/cs121/static
@@ -20,6 +19,12 @@ python3 -m venv myenv
 source myenv/bin/activate
 pip install -r ~/cs121/setup/requirements.txt
 deactivate
+
+#get learning model
+echo "Geting fastai model"
+cd ~/cs121/app/models
+wget https://www.cs.hmc.edu/~z/cs121fastaiModel/stage-2.pth
+cd ~/cs121
 
 #site/service set up
 #set up service
