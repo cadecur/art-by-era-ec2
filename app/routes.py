@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, request, send_from_directo
 from app import app
 import os
 from werkzeug import secure_filename
+from app import predictor 
 
 @app.route('/<filename>')
 def get_file(filename):
@@ -24,7 +25,9 @@ def upload_file():
             filename = secure_filename(file.filename)
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
-            return render_template('displayFile.html', filename=filename)
+            pred_class=predictor.model_predict(save_to, app.config[LOC_MODELS_FOLDER]:wq
+                    )
+            return render_template('displayResult.html', filename=filename, prediction=pred_class)
     return render_template('index.html')
 
 # allowed image types
