@@ -4,3 +4,6 @@ myenv/
 *.pyc
 static/*
 **.pth
+*.jpg
+*.jpeg
+*.png
