@@ -1,0 +1,4 @@
+#! /bin/bash
+echo "Geting fastai model"
+wget https://drive.google.com/uc?export=download&id=1-90WaE4SnAgrZzLA4av2-G5rNlP07Bxv
+echo "Done!"
