@@ -3,5 +3,6 @@ from config import Config
 
 app = Flask(__name__, static_url_path='')
 app.config.from_object(Config)
+app.static_folder = '../static'
 
 from app import routes
