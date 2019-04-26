@@ -30,7 +30,7 @@ def upload_file():
     return render_template('index.html')
 
 # allowed image types
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'])
 app.config['ALLOWED_EXTENSIONS']=ALLOWED_EXTENSIONS
 
 # is file allowed to be uploaded?
