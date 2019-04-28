@@ -2,11 +2,51 @@
     <title>Art By Era</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 
+    <div id="header"></div>
     {% if prediction %}
     <h2>Movement: {{ prediction }}!</h2>
     {% endif %}
+    </div>
     {% if filename %}
     <h2>{{ filename }}</h2>
     <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
     <center><img src="/static/{{ url_for('get_file', filename=filename) }}"></center>
     {% endif %}
+    <div id="footer">
+        <div class="container medium">
+
+          <header class="major last">
+            <h2>Questions or comments?</h2>
+          </header>
+
+          <p>A little criticism never hurt anybody. Let us know your thoughts!</p>
+
+          <form method="post" action="#">
+            <div class="row">
+              <div class="col-6 col-12-mobilep">
+                <input type="text" name="name" placeholder="Name" />
+              </div>
+              <div class="col-6 col-12-mobilep">
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="col-12">
+                <textarea name="message" placeholder="Message" rows="6"></textarea>
+              </div>
+              <div class="col-12">
+                <ul class="actions special">
+                  <li><input type="submit" value="Send Message" /></li>
+                </ul>
+              </div>
+            </div>
+          </form>
+
+          <ul class="icons">
+            <li><a href="https://github.com/cadecur/art-by-era-ec2" class="icon fa-github"><span class="label">Github</span></a></li>
+          </ul>
+
+          <ul class="copyright">
+            <li>&copy; Art-By-Era. All rights reserved.</li>
+          </ul>
+
+        </div>
+    </div>
