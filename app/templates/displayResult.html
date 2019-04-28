@@ -1,5 +1,7 @@
     <!doctype html>
-    <title>Art-by-Era Classifier</title>
+    <title>Art By Era</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+
     {% if prediction %}
     <h2>Movement: {{ prediction }}!</h2>
     {% endif %}
