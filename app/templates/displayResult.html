@@ -2,10 +2,10 @@
     <title>Art By Era</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 
-    <div id="header"></div>
-    {% if prediction %}
-    <h2>Movement: {{ prediction }}!</h2>
-    {% endif %}
+    <div id="header">
+        {% if prediction %}
+        <h2>Movement: {{ prediction }}!</h2>
+        {% endif %}
     </div>
     {% if filename %}
     <h2>{{ filename }}</h2>
