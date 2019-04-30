@@ -6,5 +6,5 @@ myenv/
 static/*
 **.pth
 **.pkl
-**.save
-**.save.1
+**.html.save
+**.html.save.1
