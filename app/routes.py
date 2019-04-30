@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, send_from_directo
 from app import app
 import os
 from werkzeug import secure_filename
-from app import predictor 
+from app import predictor
 import csv
 
 @app.route('/<filename>')
@@ -27,8 +27,8 @@ def upload_file():
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
-            pred_URL = get_csv_URL('style_era.csv',pred_class)
-            return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL=pred_URL)
+            #pred_URL = get_csv_URL('style_era.csv', pred_class)
+            return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL="Poop")
     return render_template('index.html')
 
 def get_csv_URL(csv_path, pred_class):
