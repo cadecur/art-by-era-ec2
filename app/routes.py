@@ -27,12 +27,12 @@ def upload_file():
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
-            pred_URL = get_csv_URL(pred_class)
+            pred_URL = get_csv_URL('/home/ubuntu/cs121/static/assets/style_era.csv',pred_class)
             return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL=pred_URL)
     return render_template('index.html')
 
-def get_csv_URL(pred_class):
-    with open('/home/ubuntu/cs121/static/assets/style_era.csv') as csvReader:
+def get_csv_URL(csv_path, pred_class):
+    with open(csv_path) as csvReader:
         reader = csv.DictReader(csvReader)
         for row in reader:
             if pred_class in row['Style']:
