@@ -10,12 +10,6 @@
         {% if era %}
         <h2>Era: {{ era }}</h2>
         {% endif %}
-        
-        {% if filename %}
-        <h2>{{ 'Were we correct?' }}</h2>
-        <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
-        <center><img src="/static/{{ url_for('get_file', filename=filename) }}" width = auto  height = 400></center>
-        {% endif %}
     </div>
 
     <header class="major container medium">
