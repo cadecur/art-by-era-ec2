@@ -8,8 +8,8 @@
         <h2>Movement: {{ prediction }}!</h2>
         {% endif %}
 
-        {% if ArtURL %}
-        <h2>URL: {{ ArtURL }}</h2>
+        {% if era %}
+        <h2>Era: {{ era }}</h2>
         {% endif %}
         
         {% if filename %}
@@ -20,6 +20,9 @@
     </div>
 
     <header class="major container medium">
+        {% if similar %}
+        <a href={{similar}}><h2>See <br> Similar <br> Artwork!</h2></a>
+        {% endif %}
         <a href="javascript:history.back()"><h2>Try <br> Another <br> Artwork!</h2></a>
     </header>
     <br> <br> <br> <br> <br> 

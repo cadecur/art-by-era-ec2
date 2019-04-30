@@ -28,10 +28,20 @@ def upload_file():
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
             pred_URL = get_csv_URL('/home/ubuntu/cs121/static/assets/style_era.csv',pred_class)
-            return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL= pred_URL)
+            pred_era = get_csv_era('/home/ubuntu/cs121/static/assets/style_era.csv',pred_class)
+            return render_template('displayResult.html', filename=filename, prediction=pred_class, similar = pred_URL, era = pred_era)
     return render_template('index.html')
 
 def get_csv_URL(csv_path, pred_class):
+    ourString = str(pred_class)
+    with open(csv_path) as csvReader:
+        reader = csv.DictReader(csvReader)
+        for row in reader:
+            if ourString == row['Style']:
+                return row['Wikiart']
+        return "Unknown"
+
+def get_csv_era(csv_path, pred_class):
     ourString = str(pred_class)
     with open(csv_path) as csvReader:
         reader = csv.DictReader(csvReader)
