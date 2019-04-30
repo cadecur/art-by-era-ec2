@@ -9,6 +9,8 @@ import csv
 def get_file(filename):
     return send_from_directory('static',filename)
 
+
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -31,6 +33,7 @@ def upload_file():
             return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL=pred_URL)
     return render_template('index.html')
 
+@app.route('/')
 def get_csv_URL(csv_path, pred_class):
     with open(csv_path) as csvReader:
         reader = csv.DictReader(csvReader)
