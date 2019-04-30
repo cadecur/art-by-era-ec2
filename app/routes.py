@@ -41,7 +41,9 @@ def upload_file():
 #         return "Unknown"
 
 def convert_to_url():
-    return('https://www.wikiart.org/en/paintings-by-style/')
+    ourString = "Butt Cheeks"
+    ourString.replace(' ','-')
+    return('https://www.wikiart.org/en/paintings-by-style/' + ourString)
 
 # allowed image types
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'])
