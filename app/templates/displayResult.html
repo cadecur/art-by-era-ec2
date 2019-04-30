@@ -1,7 +1,11 @@
     <!doctype html>
     <title>Art By Era</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
-
+    <style>
+            a:hover {
+            background-color: rgba(0,255,255,1);
+            }
+    </style>
     
     <div id="header">
         {% if prediction %}
@@ -20,11 +24,6 @@
     </div>
 
     <header class="major container medium">
-        <style>
-            a:hover {
-            background-color: yellow;
-            }
-        </style>
         {% if similar %}
         <a href={{similar}}><h2>See <br> Similar <br> Artwork!</h2></a>
         {% endif %}
