@@ -28,7 +28,7 @@ def upload_file():
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
             pred_URL = convert_to_url(pred_class)
-            return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL= pred_URL)
+            return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL= "Actual Shit")
     return render_template('index.html')
 
 # @app.route('/')
