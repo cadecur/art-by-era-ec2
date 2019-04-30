@@ -16,37 +16,36 @@ from werkzeug.utils import secure_filename
 
 #load model
 def load_model(model_path):
-   #  path = Path(model_path)
-   #  classes = ['Abstract Art',
-   #  'Abstract Expressionism',
-   #  'Academicism',
-   #  'Analytical Cubism',
-   #  'Art Nouveau (Modern)',
-   #  'Baroque',
-   #  'Cloissonism',
-   #  'Cubism',
-   #  'Cubist Period',
-   #  'Dada',
-   #  'Expressionism',
-   #  'Impressionism',
-   #  'Japonism',
-   #  'Metaphysical art',
-   #  'Naïve Art (Primitivism)',
-   #  'Neo-baroque',
-   #  'Neoclassicism',
-   #  'Op Art',
-   #  'Orientalism',
-   #  'Pointillism',
-   #  'Pop Art',
-   #  'Post-Impressionism',
-   #  'Realism',
-   #  'Surrealism',
-   #  'Symbolism',
-   #  'Synthetic Cubism']
-   #  data2 = ImageDataBunch.single_from_classes(path, classes, ds_tfms=get_transforms(), size=224).normalize(imagenet_stats)
-   #  learn = create_cnn(data2, models.resnet34)
-   #  learn.load('stage-2')
-   learn.load_learner(model_path, 'stage-2-50.pkl')
+    path = Path(model_path)
+    classes = ['Abstract Art',
+    'Abstract Expressionism',
+    'Academicism',
+    'Analytical Cubism',
+    'Art Nouveau (Modern)',
+    'Baroque',
+    'Cloissonism',
+    'Cubism',
+    'Cubist Period',
+    'Dada',
+    'Expressionism',
+    'Impressionism',
+    'Japonism',
+    'Metaphysical art',
+    'Naïve Art (Primitivism)',
+    'Neo-baroque',
+    'Neoclassicism',
+    'Op Art',
+    'Orientalism',
+    'Pointillism',
+    'Pop Art',
+    'Post-Impressionism',
+    'Realism',
+    'Surrealism',
+    'Symbolism',
+    'Synthetic Cubism']
+    data2 = ImageDataBunch.single_from_classes(path, classes, ds_tfms=get_transforms(), size=224).normalize(imagenet_stats)
+    learn = create_cnn(data2, models.resnet34)
+    learn.load('stage-2')
     return learn
 
 def model_predict(img_path, model_path):
