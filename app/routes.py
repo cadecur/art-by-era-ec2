@@ -27,23 +27,23 @@ def upload_file():
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
-            pred_URL = convert_to_url(pred_class)
+            pred_URL = get_csv_URL('/home/ubuntu/cs121/static/assets/style_era.csv',pred_class)
             return render_template('displayResult.html', filename=filename, prediction=pred_class, ArtURL= pred_URL)
     return render_template('index.html')
 
-# @app.route('/')
-# def get_csv_URL(csv_path, pred_class):
-#     with open(csv_path) as csvReader:
-#         reader = csv.DictReader(csvReader)
-#         for row in reader:
-#             if pred_class == row['Style']:
-#                 return row['Wikiart']
-#         return "Unknown"
-
-def convert_to_url(pred_class):
+def get_csv_URL(csv_path, pred_class):
     ourString = str(pred_class)
-    ourString = ourString.replace(' ','-')
-    return('https://www.wikiart.org/en/paintings-by-style/' + ourString)
+    with open(csv_path) as csvReader:
+        reader = csv.DictReader(csvReader)
+        for row in reader:
+            if ourString == row['Style']:
+                return row['Wikiart']
+        return "Unknown"
+
+# def convert_to_url(pred_class):
+#     ourString = str(pred_class)
+#     ourString = ourString.replace(' ','-')
+#     return('https://www.wikiart.org/en/paintings-by-style/' + ourString)
 
 # allowed image types
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'])
