@@ -27,7 +27,7 @@ def upload_file():
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
-            pred_URL=get_csv_URL(pred_class)
+            pred_URL = get_csv_URL(pred_class)
             return render_template('displayResult.html', filename=filename, prediction=pred_class, URL=pred_URL)
     return render_template('index.html')
 
@@ -38,6 +38,7 @@ def get_csv_URL(pred_class):
         for row in reader:
             if pred_class == row['Style']:
                 return row['Wikiart']
+        return "Unknown"
 
 # allowed image types
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'])
