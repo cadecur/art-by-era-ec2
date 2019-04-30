@@ -11,15 +11,15 @@
         <h3>Era: {{ era }}</h3>
         {% endif %}
         
-    </div>
-
-    <header class="major container medium">
         {% if filename %}
         <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
         <center><img src="/static/{{ url_for('get_file', filename=filename) }}" width = auto  height = 400></center>
         {% endif %}
+    </div>
+
+    <header class="major container medium">
         {% if similar %}
-        <a href={{similar}}><h2>See <br> Similar <br> Artwork!</h2></a>
+        <a href={{similar}} rel="noopener noreferrer" target="_blank"><h2>Click For <br> Similar <br> Artwork!</h2></a>
         {% endif %}
         <br> <br>
         <a href="javascript:history.back()"><h2>Try <br> Another <br> Artwork!</h2></a>
