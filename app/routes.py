@@ -37,7 +37,7 @@ def get_csv_URL(pred_class):
 
         for row in reader:
             if pred_class in row['Style']:
-                return row['Wikiart']
+                return str(row['Wikiart'])
         return "Unknown"
 
 # allowed image types
