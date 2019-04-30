@@ -5,3 +5,6 @@ myenv/
 *.pyc
 static/*
 **.pth
+**.pkl
+**.save
+**.save.1
