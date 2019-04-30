@@ -7,9 +7,11 @@
         {% if prediction %}
         <h2>Movement: {{ prediction }}!</h2>
         {% endif %}
+
         {% if ArtURL %}
         <h2>URL: {{ ArtURL }}</h2>
         {% endif %}
+        
         {% if filename %}
         <h2>{{ 'Were we correct?' }}</h2>
         <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
