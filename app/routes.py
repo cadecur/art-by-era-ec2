@@ -4,6 +4,7 @@ import os
 from werkzeug import secure_filename
 from app import predictor 
 import csv
+import sys
 
 @app.route('/<filename>')
 def get_file(filename):
@@ -34,8 +35,9 @@ def upload_file():
 def get_csv_URL(pred_class):
     with open('/home/ubuntu/cs121/static/assets/style_era.csv',newline='') as csvReader:
         reader = csv.DictReader(csvReader)
-
+        print('We at least go this far', file=sys.stderr)
         for row in reader:
+            print(row['Style'], file=sys.stderr)
             if pred_class in row['Style']:
                 return str(row['Wikiart'])
         return "Unknown"
