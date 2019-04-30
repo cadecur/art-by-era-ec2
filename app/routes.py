@@ -32,6 +32,7 @@ def upload_file():
             return render_template('displayResult.html', filename=filename, prediction=pred_class, similar = pred_URL, era = pred_era)
     return render_template('index.html')
 
+#fetch similar art
 def get_csv_URL(csv_path, pred_class):
     ourString = str(pred_class)
     with open(csv_path) as csvReader:
@@ -41,6 +42,7 @@ def get_csv_URL(csv_path, pred_class):
                 return row['Wikiart']
         return "Unknown"
 
+#fetch era
 def get_csv_era(csv_path, pred_class):
     ourString = str(pred_class)
     with open(csv_path) as csvReader:
@@ -49,11 +51,6 @@ def get_csv_era(csv_path, pred_class):
             if ourString == row['Style']:
                 return row['Era']
         return "Unknown"
-
-# def convert_to_url(pred_class):
-#     ourString = str(pred_class)
-#     ourString = ourString.replace(' ','-')
-#     return('https://www.wikiart.org/en/paintings-by-style/' + ourString)
 
 # allowed image types
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'])
