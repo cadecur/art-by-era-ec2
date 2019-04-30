@@ -37,7 +37,7 @@ def get_csv_URL(csv_path, pred_class):
         reader = csv.DictReader(csvReader)
         for row in reader:
             if ourString == row['Style']:
-                return row['Wikiart']
+                return row['Era']
         return "Unknown"
 
 # def convert_to_url(pred_class):
