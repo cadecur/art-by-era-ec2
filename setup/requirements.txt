@@ -50,4 +50,4 @@ tqdm==4.31.1
 typing==3.6.6
 urllib3==1.24.1
 wasabi==0.2.1
-Werkzeug==0.15.1
+Werkzeug==0.15.3
